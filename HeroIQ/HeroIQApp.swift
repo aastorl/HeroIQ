@@ -11,7 +11,11 @@ import SwiftUI
 struct HeroIQApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SuperheroSearchView()
         }
     }
+}
+
+#Preview {
+    SuperheroSearchView()
 }
