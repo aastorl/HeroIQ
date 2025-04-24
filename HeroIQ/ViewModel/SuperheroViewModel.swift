@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SuperheroViewModel: Identifiable {
+struct SuperheroViewModel: Identifiable, Equatable {
     let id: String
     let name: String
     let imageUrl: String
@@ -17,6 +17,10 @@ struct SuperheroViewModel: Identifiable {
         self.name = superhero.name
         self.imageUrl = superhero.image.url
     }
+    
+    static func == (lhs: SuperheroViewModel, rhs: SuperheroViewModel) -> Bool {
+            return lhs.id == rhs.id
+        }
 }
 
 

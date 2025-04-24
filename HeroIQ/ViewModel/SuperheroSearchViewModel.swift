@@ -13,6 +13,8 @@ class SuperheroSearcherViewModel: ObservableObject {
     @Published var results: [SuperheroViewModel] = []
 
     func search() async {
+        guard !searchText.trimmingCharacters(in: .whitespaces).isEmpty else { return }
+        
         do {
             let wrapper = try await ApiNetwork.getHeroesByQuery(query: searchText)
             results = wrapper.results.map { SuperheroViewModel(superhero: $0) }
@@ -21,4 +23,5 @@ class SuperheroSearcherViewModel: ObservableObject {
         }
     }
 }
+
 
